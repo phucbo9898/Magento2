@@ -1,0 +1,54 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/naruto.jpg</argument>
+                <argument name="logo_img_width" xsi:type="number">200</argument>
+                <argument name="logo_img_height" xsi:type="number">200</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header.container" htmlId="header" htmlClass="">
+            <referenceContainer name="header.panel.wrapper"  htmlClass="header_top">
+                <referenceContainer name="header.panel">
+                    <block class="Dev\Eshoper\Block\HeaderTop" name="header.top" template="Dev_Eshoper::header_top_block.phtml" />
+                </referenceContainer>
+            </referenceContainer>
+            <referenceContainer name="header-wrapper" htmlClass="header-middle">
+                <container htmlClass="container" htmlTag="div">
+                    <container htmlClass="row" htmlTag="div">
+                        <container htmlClass="col-sm-4" htmlTag="div">
+                            <container name="header-logo" htmlClass="logo pull-left" htmlTag="div"/>
+                        </container>
+                        <container htmlClass="col-sm-8" htmlTag="div">
+                            <container name="header-shop-menu" htmlClass="shop-menu pull-right" htmlTag="div"/>
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+            <referenceContainer name="page.top" htmlClass="header-bottom" htmlTag="div">
+                <container htmlClass="container" htmlTag="div">
+                    <container htmlClass="row" htmlTag="div">
+                        <container htmlClass="col-sm-9" htmlTag="div">
+                            <container name="page-top-menu" htmlClass="main-menu pull-left" htmlTag="div"/>
+                        </container>
+                        <container htmlClass="col-sm-3" htmlTag="div">
+                            
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+        </referenceContainer>
+
+        <move element="page.top" destination="header.container" after="header-wrapper" />
+        <move element="top.links" destination="header-shop-menu"/>
+        <move element="navigation.sections" destination="page-top-menu"/>
+        <move element="logo" destination="header-logo"/>
+    </body>
+</page>
+
+
+
+
+
